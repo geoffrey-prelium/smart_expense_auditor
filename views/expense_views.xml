@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_expenses_tree_inherit_smart_auditor" model="ir.ui.view">
+        <field name="name">hr.expense.tree.smart.auditor</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_expenses_analysis_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                 <header>
+                    <button name="action_audit_expenses" string="Lancer l'Audit" type="object" class="btn-secondary"/>
+                 </header>
+            </xpath>
+            <xpath expr="//field[@name='total_amount']" position="after">
+                <field name="audit_score" widget="badge"
+                       decoration-danger="audit_score > 50"
+                       decoration-success="audit_score == 0"
+                       optional="show"/>
+                <field name="is_suspicious" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_expenses_form_inherit_smart_auditor" model="ir.ui.view">
+        <field name="name">hr.expense.form.smart.auditor</field>
+        <field name="model">hr.expense</field>
+        <field name="inherit_id" ref="hr_expense.hr_expense_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="Audit Résultat" invisible="audit_score == 0">
+                    <group>
+                        <field name="audit_score" widget="percentpie" decoration-danger="audit_score > 50"/>
+                        <field name="is_suspicious" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="audit_notes" nolabel="1" placeholder="Notes d'audit..."/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
