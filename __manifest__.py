@@ -1,5 +1,6 @@
 {
     'name': 'Smart Expense Auditor',
+    'author': 'Geoffrey Lecluse',
     'version': '1.0',
     'category': 'Human Resources/Expenses',
     'summary': 'Automated audit and risk scoring for employee expenses',
