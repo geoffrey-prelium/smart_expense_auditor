@@ -1,6 +1,6 @@
 {
     'name': 'Smart Expense Auditor',
-    'author': 'Geoffrey Lecluse',
+    'author': 'Geoffrey Lecluse (Prelium)',
     'version': '1.0',
     'category': 'Human Resources/Expenses',
     'summary': 'Automated audit and risk scoring for employee expenses',
