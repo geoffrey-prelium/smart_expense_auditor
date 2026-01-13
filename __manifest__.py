@@ -17,6 +17,7 @@
         'security/ir.model.access.csv',
         'views/expense_views.xml',
     ],
+    'demo': [],
     'installable': True,
     'application': False,
     'license': 'LGPL-3',
